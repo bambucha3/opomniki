@@ -2,12 +2,28 @@ window.addEventListener('load', function() {
 	//stran nalozena
 		
 	//Izvedi prijavo
+
 	var izvediPrijavo = function() {
 		var uporabnik = document.querySelector("#uporabnisko_ime").value;
 		document.querySelector("#uporabnik").innerHTML = uporabnik; //dodamo nekaj znotraj oznake z id=uporabnik
 		document.querySelector(".pokrivalo").style.visibility = "hidden";
 	}	
 	document.querySelector("#prijavniGumb").addEventListener("click", izvediPrijavo); //poiscemo prijavni gumb in na njega damo listener za click
+
+	//Dodaj opomnik
+	var dodajOpomnik = function(){
+		var naziv_opomnika = document.querySelector("#naziv_opomnika").value;
+		var cas_opomnika = document.querySelector("#cas_opomnika").value;
+		document.querySelector("#naziv_opomnika").value = "";
+		document.querySelector("#cas_opomnika").value = "";
+		document.querySelector("#opomniki").innerHTML += "\
+			<div class='opomnik senca rob'> \
+				<div class='naziv_opomnika'>" + naziv_opomnika + "</div> \
+				<div class='cas_opomnika'> Opomnik čez <span>" + cas_opomnika + "</span> sekund.</div> \
+			</div>";
+	}
+	document.querySelector("#dodajGumb").addEventListener("click", dodajOpomnik);
+
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
