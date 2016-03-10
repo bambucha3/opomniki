@@ -36,6 +36,14 @@ window.addEventListener('load', function() {
 			//TODO: 
 			// - če je čas enak 0, izpiši opozorilo "Opomnik!\n\nZadolžitev NAZIV_OPOMNIK je potekla!"
 			// - sicer zmanjšaj čas za 1 in nastavi novo vrednost v časovniku
+			
+			if (cas == 0) {
+				var naziv_opomnika = opomnik.querySelector(".naziv_opomnika").innerHTML; //querySelector klicemo na opomniku, ne pa na celotnem dokumentu, tako da lahko dobimo value vsakega opomnika posebej
+				alert("Opomnik!\n\nZadolžitev " + naziv_opomnika + " je potekla!");
+				document.querySelector("#opomniki").removeChild(opomnik);
+			} else {
+				casovnik.innerHTML = cas - 1;
+			}
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
