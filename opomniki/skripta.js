@@ -1,6 +1,13 @@
 window.addEventListener('load', function() {
 	//stran nalozena
 		
+	//Izvedi prijavo
+	var izvediPrijavo = function() {
+		var uporabnik = document.querySelector("#uporabnisko_ime").value;
+		document.querySelector("#uporabnik").innerHTML = uporabnik; //dodamo nekaj znotraj oznake z id=uporabnik
+		document.querySelector(".pokrivalo").style.visibility = "hidden";
+	}	
+	document.querySelector("#prijavniGumb").addEventListener("click", izvediPrijavo); //poiscemo prijavni gumb in na njega damo listener za click
 	//Posodobi opomnike
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
